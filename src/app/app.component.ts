@@ -16,4 +16,8 @@ export class AppComponent {
   public click() {
     this.authService.authorise();
   }
+
+  public logout() { 
+    this.authService.logout()
+  }
 }

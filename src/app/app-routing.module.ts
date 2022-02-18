@@ -6,7 +6,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-  { path: 'welcome', component: PageNotFoundComponent},
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+  { path: 'user', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  { path: '**', component: PageNotFoundComponent},
+
 ];
 
 @NgModule({

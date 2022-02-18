@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 
 @Injectable({
@@ -9,7 +10,9 @@ export class AuthService {
   private auth0WebAuth: auth0.WebAuth;
   private authOptions: auth0.AuthOptions;
 
-  constructor() { 
+  constructor(
+    private router: Router
+  ) { 
 
     this.authOptions = { 
       domain: 'dev-yrjfm-oh.us.auth0.com',
@@ -32,5 +35,9 @@ export class AuthService {
       console.log(err);
       console.log(authResult);
     });
+  }
+
+  public logout() { 
+    this.router.navigate(['/welcome']);  
   }
 }
