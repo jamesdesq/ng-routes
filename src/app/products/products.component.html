@@ -1,1 +1,6 @@
-<p>products works!</p>
+<h2>These are the products</h2>
+<ol>
+    <li *ngFor="let product of products">
+        <a [routerLink]="['/orders', product.id ]">{{ product.name }}</a>
+    </li>
+</ol>

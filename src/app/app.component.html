@@ -1,7 +1,14 @@
 <ul>
   <!-- this is a *template expression* that returns a *link parameters array* -->
   <li><a [routerLink]="['/welcome']">Home</a></li>
-  <li><a [routerLink]="['/products']">Products</a></li>
+  <!-- query parameters are also defined in the template expression -->
+  <li><a [routerLink]="['/products']"
+    [queryParams] = "{ newOnly: true}"
+    >
+    Products
+  </a></li>
+  <li><a [routerLink]="['/orders']">Orders</a></li>
+
 </ul>
 <router-outlet></router-outlet>
 <button (click)="click()">Login</button>
